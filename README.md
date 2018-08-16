@@ -23,3 +23,4 @@
 3.  LV 6 에 달성하게 되면 승리가 출력되며 종료 <br> 
 
 http://image.nmv.naver.net/cafeucc15/2015/02/10/521/c5b22257cc7581324bf5446b1500961810f9_ugcvideo_480P_01_16x9_logo.jpg
+exTable.pdf
