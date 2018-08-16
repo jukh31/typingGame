@@ -10,10 +10,12 @@ int main()
 
 	// 미리 레벨에 맞는 단어 저장
 	char Lv1[100] = { "나라,국가,날림,엄마,그림,파리,모기,사과" };
-	char Lv2[100] = { "나달,날두,아크,담배,아구,대리,감귤" };
-	char Lv3[100] = { "가가,나나,다다,라라,마마,바바,사사" };
-	char Lv4[100] = { "갸갸,거거,겨겨,고고,교교,구구,규규" };
-	char Lv5[100] = { "나다,다라,마바,바사,사아,아자" };
+	char Lv2[100] = { "다현,모모,아크,담배,아구,대리,감귤" };
+	char Lv3[100] = { "엉뚱,어이,끌이,굳이,마마,연세,사나" };
+	char Lv4[100] = { "움찔,해쓱,깨끗,기쁨,가끔,으뜸,어깨" };
+	char Lv5[100] = { "딱지,법석,몹시,잔뜩,훨씬,부썩,살짝,오빠 };
+
+	char cp[100];
 
 	char answer[512] = {};
 	char input;
@@ -29,6 +31,9 @@ int main()
 	int bonus = 0;
 	int bExp = 0;
 	int blife = 0;
+	//카피 ,나눔
+	strcpy(cp, Lv1);
+
 	token = strtok_s(Lv1, ",", &empty);
 
 	// 뭔가 없어보이는 초기 화면
@@ -40,6 +45,7 @@ int main()
 	cin >> input;
 	system("cls");
 	cout << " 시작?" << endl;
+
 	//반복
 	while (1)
 	{
@@ -135,7 +141,8 @@ int main()
 			flag++;
 			if (flag == 1)
 			{
-				token = strtok_s(Lv2, answer, &empty);
+				strcpy(cp,Lv2);
+				token = strtok_s(cp, answer, &empty);
 				flag = 0;
 			}
 		}
@@ -146,7 +153,8 @@ int main()
 			flag++;
 			if (flag == 1)
 			{
-				token = strtok_s(Lv3, answer, &empty);
+				strcpy(cp, Lv2);
+				token = strtok_s(cp, answer, &empty);
 				flag = 0;
 			}
 		}
@@ -156,7 +164,8 @@ int main()
 			flag++;
 			if (flag == 1)
 			{
-				token = strtok_s(Lv4, answer, &empty);
+				strcpy(cp, Lv2);
+				token = strtok_s(cp, answer, &empty);
 				flag = 0;
 			}
 		}
@@ -166,7 +175,8 @@ int main()
 			flag++;
 			if (flag == 1)
 			{
-				token = strtok_s(Lv5, answer, &empty);
+				strcpy(cp, Lv2);
+				token = strtok_s(cp, answer, &empty);
 				flag = 0;
 			}
 		}
