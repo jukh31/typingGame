@@ -2,34 +2,50 @@
 #include <stdlib.h>
 #include <string.h>
 using namespace std;
+#define LV 20
 
 
 
 int main()
 {
 
-	// 미리 레벨에 맞는 단어 저장
-	char Lv1[100] = { "나라,국가,날림,엄마,그림,파리,모기,사과" };
-	char Lv2[100] = { "나달,날두,아크,담배,아구,대리,감귤" };
-	char Lv3[100] = { "가가,나나,다다,라라,마마,바바,사사" };
-	char Lv4[100] = { "갸갸,거거,겨겨,고고,교교,구구,규규" };
-	char Lv5[100] = { "나다,다라,마바,바사,사아,아자" };
+	
+	const char wordLV1[LV][32] = 
+	{
+		"나라","국가","날림","엄마","그림","파리","모기","사과"
+	};
+	const char wordLV2[LV][32] =
+	{
+		"나달","날두","아크","담배","아구","대리","감귤"
+	};
+	const char wordLV3[LV][32] =
+	{
+		"가가","나나","다다","라라","마마","바바","사사"
+	};
+	const char wordLV4[LV][32] =
+	{
+		"갸갸","거거","겨겨","고고","교교","구구","규규"
+	};
+	const char wordLV5[LV][32] =
+	{
+		"나다","다라","마바","바사","사아","아자"
+	};
 
-	char answer[512] = {};
+	char answer[64] = {};
+	char outPut[64] = {};
+
 	char input;
-	char* token = 0;//추가함
-	char* empty = 0;
-	int flag = 0;
+	
 	// 초기 설정
 	int lv = 1;
-
+	int i = 0;
 	int Exp = 0;
 	int life = 3;
 	int comp = 0;
 	int bonus = 0;
 	int bExp = 0;
 	int blife = 0;
-	token = strtok_s(Lv1, ",", &empty);
+	
 
 	// 뭔가 없어보이는 초기 화면
 	cout << "typingGame" << endl;
@@ -39,7 +55,7 @@ int main()
 	cout << "시작할려면 아무키 + 엔터" << endl;
 	cin >> input;
 	system("cls");
-	cout << " 시작?" << endl;
+	cout << "시작 !" << endl;
 	//반복
 	while (1)
 	{
@@ -58,7 +74,12 @@ int main()
 			if (blife == 1)
 				cout << "BONUS LIFE" << endl;
 
-			cout << token << endl;//출력
+			
+			strcpy(outPut, wordLV1[i]);
+	
+			cout << outPut << endl;//출력
+			i++;//단어 변수
+
 		}
 		else if (lv == 2)
 		{
@@ -66,7 +87,11 @@ int main()
 				cout << "BONUS EXP" << endl;
 			if (blife == 1)
 				cout << "BONUS LIFE" << endl;
-			cout << token << endl;//출력
+			
+			strcpy(outPut, wordLV2[i]);
+			cout << outPut << endl;//출력
+			i++;//단어 변수
+
 		}
 		else if (lv == 3)
 		{
@@ -74,7 +99,9 @@ int main()
 				cout << "BONUS EXP" << endl;
 			if (blife == 1)
 				cout << "BONUS LIFE" << endl;
-			cout << token << endl;//출력
+			strcpy(outPut, wordLV3[i]);
+			cout << outPut << endl;//출력
+			i++;//단어 변수
 		}
 
 		else if (lv == 4)
@@ -83,7 +110,9 @@ int main()
 				cout << "BONUS EXP" << endl;
 			if (blife == 1)
 				cout << "BONUS LIFE" << endl;
-			cout << token << endl;//출력
+			strcpy(outPut, wordLV4[i]);
+			cout << outPut << endl;//출력
+			i++;//단어 변수
 		}
 
 		else if (lv == 5)
@@ -92,12 +121,15 @@ int main()
 				cout << "BONUS EXP" << endl;
 			if (blife == 1)
 				cout << "BONUS LIFE" << endl;
-			cout << token << endl;//출력
+			strcpy(outPut, wordLV4[i]);
+			cout << outPut << endl;//출력
+			i++;//단어 변수
 		}
-		cin >> answer;//입력
+		//정답 입력
+		cin >> answer;
 
 					  //정답 여부 판별후 정산
-		if (strcmp(token, answer) == 0)
+		if (strcmp(outPut, answer) == 0)
 		{
 			system("cls");// 테스트용
 			cout << "성공" << endl;// 테스트용
@@ -121,54 +153,31 @@ int main()
 			blife = 0;
 			life--;
 		}
-		//결과 출력
-		cout << "lv" << lv << endl;
-		cout << "exp" << Exp << endl;
-		cout << "life" << life << endl;
-		cout << endl << endl << endl << endl;
+		
 
 
 		//레벨업 가능 판별 후 가능이면 레벨업
 		if (lv == 1 && Exp >= 3)
 		{
 			lv++;
-			flag++;
-			if (flag == 1)
-			{
-				token = strtok_s(Lv2, answer, &empty);
-				flag = 0;
-			}
+			i = 0;
+		
 		}
 
 		else if (lv == 2 && Exp >= 6)
 		{
 			lv++;
-			flag++;
-			if (flag == 1)
-			{
-				token = strtok_s(Lv3, answer, &empty);
-				flag = 0;
-			}
+	
 		}
 		else if (lv == 3 && Exp >= 9)
 		{
 			lv++;
-			flag++;
-			if (flag == 1)
-			{
-				token = strtok_s(Lv4, answer, &empty);
-				flag = 0;
-			}
+	
 		}
 		else if (lv == 4 && Exp >= 12)
 		{
 			lv++;
-			flag++;
-			if (flag == 1)
-			{
-				token = strtok_s(Lv5, answer, &empty);
-				flag = 0;
-			}
+		
 		}
 		else if (lv == 5 && Exp >= 15)
 		{
@@ -188,14 +197,19 @@ int main()
 			exit(1);
 		}
 
+		//결과 출력
+		cout << "lv" << lv << endl;
+		cout << "exp" << Exp << endl;
+		cout << "life" << life << endl;
+		cout << endl << endl << endl << endl;
 		//반복 끝
-		token = strtok_s(NULL, ",", &empty);												//추가함
+		
 	}
 
 
 
 
-	/*cout << "wwwwww"<<endl;*/
+	
 
 	return 0;
 }
