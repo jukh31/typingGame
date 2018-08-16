@@ -18,6 +18,11 @@
         처음 시작하게 되면 경험치 0, 라이프 3으로 시작하게 되고<br>
         보너스 문제를 맞추게 되면 더 많은 경험치나 추가 라이프를 획득 할 수 있다.<br>
             <경험치 테이블>
+            ![Alt Text](./readme_github/table.png)
+            git add.
+            git commit -m "revise readme_github directory"
+            git push origin master
+            
             https://user-images.githubusercontent.com/42165321/44182293-540ec380-a141-11e8-8e83-c1780bf4f02d.png<br><br><br>
         
 
