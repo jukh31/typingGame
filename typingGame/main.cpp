@@ -8,7 +8,7 @@ int main()
 {
 
 	// 미리 레벨에 맞는 단어 저장
-	char Lv1[512] = {"나라,국가,날림,엄마"};
+	char Lv1[512] = {"나라,국가,날림,엄마,그림,파리"};
 	char answer[512] = {};
 	char i;
 	int lv, Exp, life, comp,difficulty,bonus,bExp,blife;
@@ -41,28 +41,7 @@ int main()
 	//반복
 	while (1)
 	{
-		//레벨 확인
-		if (lv == 1)
-		{
-			difficulty = 1;
-		}
-		else if (lv == 2)
-		{
-			difficulty = 2;
-		}
-		else if (lv == 3)
-		{
-			difficulty = 3;
-		}
-		else if (lv == 4)
-		{
-			difficulty = 4;
-		}
-		else if (lv == 5)
-		{
-			difficulty = 5;
-		}
-
+		
 		// 승리 여부
 		if (lv == 6)
 		{
@@ -70,7 +49,7 @@ int main()
 			return 1;
 		}
 
-		//보너스 생성
+		//보너스 생성 
 		bonus = rand() % 9;
 
 		if (bonus == 3)
@@ -80,10 +59,56 @@ int main()
 
 		 
 		//일반문제 단어 출력 및 입력(레벨 확인)
-		puts(Lv1);
-		cout << token << endl;
+		//puts(Lv1);
+		if (lv == 1)
+		{
+			if (bExp == 1)
+				cout << "BONUS EXP" << endl;
+			if (blife == 1)
+				cout << "BONUS LIFE" << endl;
 
-		cin >> answer ;
+			cout << token << endl;//출력
+			cin >> answer;//입력
+		}
+		else if (lv == 2)
+		{
+			if (bExp == 1)
+				cout << "BONUS EXP" << endl;
+			if (blife == 1)
+				cout << "BONUS LIFE" << endl;
+			cout << token << endl;//출력
+			cin >> answer;//입력
+		}
+		else if (lv == 3)
+		{
+			if (bExp == 1)
+				cout << "BONUS EXP" << endl;
+			if (blife == 1)
+				cout << "BONUS LIFE" << endl;
+			cout << token << endl;//출력
+			cin >> answer;//입력
+		}
+
+		else if (lv == 4)
+		{
+			if (bExp == 1)
+				cout << "BONUS EXP" << endl;
+			if (blife == 1)
+				cout << "BONUS LIFE" << endl;
+			cout << token << endl;//출력
+			cin >> answer;//입력
+		}
+
+		else if (lv == 5)
+		{
+			if (bExp == 1)
+				cout << "BONUS EXP" << endl;
+			if (blife == 1)
+				cout << "BONUS LIFE" << endl;
+			cout << token << endl;//출력
+			cin >> answer;//입력
+		}
+
 
 		//정답 여부 판별후 정산
 		if (strcmp(token, answer) == 0)
@@ -106,22 +131,25 @@ int main()
 		{
 			system("cls");
 			cout << "실패" << endl;
+			bExp = 0;
+			blife = 0;
 			life--;
 		}
-
-
+		cout << "lv" << lv << endl;
+		cout<<"exp" << Exp << endl;
+		cout<<"life"<< life << endl;
 
 
 		//레벨업 가능 판별 후 가능이면 레벨업
-		if (lv == 1 || Exp == 3)
+		if (lv == 1 && Exp == 3)
 			lv++;
-		else if (lv == 2 || Exp == 9)
+		else if (lv == 2 && Exp == 9)
 			lv++;
-		else if (lv == 3 || Exp == 18)
+		else if (lv == 3 && Exp == 18)
 			lv++;
-		else if (lv == 4 || Exp == 30)
+		else if (lv == 4 && Exp == 30)
 			lv++;
-		else if (lv == 5 || Exp == 45)
+		else if (lv == 5 && Exp == 45)
 			lv++;
 
 
