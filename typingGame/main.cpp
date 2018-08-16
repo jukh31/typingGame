@@ -8,10 +8,11 @@ int main()
 {
 
 	// 미리 레벨에 맞는 단어 저장
-	char Lv1[512] = {"노답"};
+	char Lv1[512] = {"나라,국가,날림,엄마"};
 	char answer[512] = {};
 	char i;
 	int lv, Exp, life, comp,difficulty,bonus,bExp,blife;
+	char* token;												//추가함
 	// 초기 설정
 	lv = 1;
 	Exp = 0;
@@ -20,6 +21,8 @@ int main()
 	bonus = 0;
 	bExp = 0;
 	blife = 0;
+
+	token = strtok(Lv1,",");									//추가함
 	// 뭔가 없어보이는 초기 화면
 	cout << "typingGame" << endl;
 	cout << endl;
@@ -61,7 +64,6 @@ int main()
 		}
 
 		// 승리 여부
-
 		if (lv == 6)
 		{
 			cout << "승리" << endl;
@@ -70,6 +72,7 @@ int main()
 
 		//보너스 생성
 		bonus = rand() % 9;
+
 		if (bonus == 3)
 			bExp = 1;
 		else if (bonus == 7)
@@ -78,11 +81,12 @@ int main()
 		 
 		//일반문제 단어 출력 및 입력(레벨 확인)
 		puts(Lv1);
-		cin.getline(answer, 512);//수정해야함
+		cout << token << endl;
 
+		cin >> answer ;
 
 		//정답 여부 판별후 정산
-		if (strcmp(Lv1, answer) == 0)
+		if (strcmp(token, answer) == 0)
 		{
 			system("cls");
 			cout << "성공" << endl;
@@ -130,6 +134,7 @@ int main()
 		}
 
 		//반복 끝
+		token = strtok(NULL,",");												//추가함
 	}
 	
 
